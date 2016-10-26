@@ -43,30 +43,46 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="cinemas//public/user/">
+                <a class="navbar-brand page-scroll" href="{{ url('/dasboard') }}">
                     <i class="fa fa-play-circle"></i> Cinema Pratama
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/cinemas/public/user/now">Now Playing</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/cinemas/public/user/comingsoon">Coming Soon</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/cinemas/public/user/trailer">Trailer</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
+                <ul class="nav navbar-nav navbar-right">
+                    @if(Auth::guest())
+                        <li><a class="page-scroll" href="{{ url('/login') }}">Login</a></li>
+                        <li><a class="page-scroll" href="{{ url('/register') }}">Register</a></li>
+                    @else
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="{{ url('/now') }}">Now Playing</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="{{ url('/comingsoon') }}">Coming Soon</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="{{ url('/trailer') }}">Trailer</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Contact</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

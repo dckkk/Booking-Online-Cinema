@@ -12,25 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/user/index');
 });
 
-Route::get('/user', function() {
-    return view('user.index');
-});
+Route::get('/dashboard', 'DashboardController@index');
 
-Route::get('/user/comingsoon', function() {
+Route::get('/comingsoon', function() {
     return view('user.comingsoon');
 });
 
-Route::get('/user/trailer', function() {
+Route::get('/trailer', function() {
     return view('user.trailer');
 });
 
-Route::get('/user/now', function() {
+Route::get('/now', function() {
     return view('user.now');
 });
 
-Route::get('/user/seat', function() {
+Route::get('/seat', function() {
     return view('user.seat');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
