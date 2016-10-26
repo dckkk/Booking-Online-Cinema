@@ -25,6 +25,7 @@ class CreateTableMovies extends Migration
             $table->string('movie_poster');
             $table->string('movie_trailer');
             $table->string('movie_tayang');
+            $table->string('movie_active');
         });
     }
 

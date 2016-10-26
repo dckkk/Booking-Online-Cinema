@@ -15,8 +15,7 @@ class CreateTableSeat extends Migration
     {
         Schema::create('tb_seat', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('seat_vertikal');
-            $table->integer('seat_horizontal');
+            $table->string('seat_code');
         });
     }
 

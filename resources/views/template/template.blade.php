@@ -52,8 +52,8 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     @if(Auth::guest())
-                        <li><a class="page-scroll" href="{{ url('/login') }}">Login</a></li>
-                        <li><a class="page-scroll" href="{{ url('/register') }}">Register</a></li>
+                        <li><a class="page-scroll" href="{{ url('/customer/login') }}">Login</a></li>
+                        <li><a class="page-scroll" href="{{ url('/customer/register') }}">Register</a></li>
                     @else
                         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                         <li class="hidden">
